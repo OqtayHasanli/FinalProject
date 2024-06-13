@@ -1,0 +1,127 @@
+.maindiv {
+    margin: 0 auto;
+    height: 90vh;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+
+
+    .login {
+        width: 80%;
+        padding: 8% 0 0;
+        margin: auto;
+        font-family: 'Comfortaa', cursive;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .form {
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            border-radius: 10px;
+            max-width: 360px;
+            margin: 0 auto 100px;
+            padding: 45px;
+            text-align: center;
+
+            &:focus {
+                background: #dbdbdb;
+            }
+
+            input {
+                outline: 0;
+                background: #f2f2f2;
+                width: 100%;
+                border: 0;
+                border-radius: 5px;
+                margin: 0 0 15px;
+                padding: 15px;
+                box-sizing: border-box;
+                font-size: 14px;
+                font-family: 'Comfortaa'
+            }
+
+            button {
+                font-family: 'Comfortaa', cursive;
+                text-transform: uppercase;
+                outline: 0;
+                background: #4b6cb7;
+                width: 100%;
+                border: 0;
+                border-radius: 5px;
+                padding: 15px;
+                color: #FFFFFF;
+                font-size: 14px;
+                -webkit-transition: all 0.3 ease;
+                transition: all 0.3 ease;
+                cursor: pointer;
+
+                :active {
+                    background: #395591;
+                }
+            }
+
+            span {
+                font-size: 40px;
+                color: #4b6cb7;
+                margin-bottom: 25px;
+                display: block;
+            }
+
+            .error {
+                margin: 0 0 10px 10px;
+                text-align: left;
+                font-size: 10px;
+                color: red;
+            }
+
+        }
+    }
+
+
+}
+
+.createacount {
+    width: 200px;
+    height: 60px;
+    background-color: greenyellow;
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+.loginregisterNavbar {
+
+    background: linear-gradient(90deg, rgba(163, 0, 0, 1) 16%, rgba(188, 0, 0, 1) 64%, rgba(227, 0, 0, 1) 82%);
+    width: 100%;
+
+    .mycontainernavbar {
+        max-width: 80%;
+        height: 100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .Linkbackground {
+            width: 100px;
+            height: 40px;
+            background: linear-gradient(90deg, rgba(0, 85, 163, 1) 19%, rgba(0, 41, 188, 1) 79%, rgba(111, 0, 227, 1) 95%);
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+}
+@media only screen and (max-width: 600px) {
+    .logoimage{
+        width:105px ;
+        height: 20px;
+    }
+  }

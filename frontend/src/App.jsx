@@ -1,4 +1,11 @@
 import React from 'react'
+import {routes} from "./routes/router.jsx"
+import "./assets/style/reset.scss"
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+const router = createBrowserRouter(routes)
 
 function App() {
 
