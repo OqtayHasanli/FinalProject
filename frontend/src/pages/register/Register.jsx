@@ -4,6 +4,9 @@ import * as Yup from "yup";
 import '../login/login.scss'
 import logo from "../../assets/images/logo.png"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -14,11 +17,12 @@ const schema = Yup.object().shape({
     .min(8, "Password must be at least 8 characters")
 });
 const Register = () => {
+  const Navigate=useNavigate()
   return (
     <>
     <div className='loginregisterNavbar'>
         <div className='mycontainernavbar'>
-          <div><img src={logo} alt="" /></div>
+          <div><img className='logoimage' src={logo} alt="" /></div>
           <div></div>
           <Link className='Linkbackground' to={"/"}>Login</Link>
         </div>
@@ -30,6 +34,18 @@ const Register = () => {
       initialValues={{ email: "", password: "" }}
       onSubmit={(values) => {
         console.log(values);
+        axios.post('http://localhost:3100/users',values).then((res)=>{
+          if (res.status==201) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Email account already exists",
+            });
+          }
+          if (res.status==200) {
+            Navigate("/home")
+          }
+        })
       }}
     >
       {({

@@ -2,9 +2,10 @@ import React from 'react'
 import { Formik } from "formik";
 import * as Yup from "yup";
 import './login.scss'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import logo from "../../assets/images/logo.png"
-
+import axios from 'axios';
+import Swal from 'sweetalert2';
 const schema = Yup.object().shape({
   email: Yup.string()
     .required("Email is a required field")
@@ -13,7 +14,9 @@ const schema = Yup.object().shape({
     .required("Password is a required field")
     .min(8, "Password must be at least 8 characters")
 });
+
 const Login = () => {
+  const Navigate=useNavigate()
   return (
     <>
       <div className='loginregisterNavbar'>
@@ -28,7 +31,18 @@ const Login = () => {
           validationSchema={schema}
           initialValues={{ email: "", password: "" }}
           onSubmit={(values) => {
-            alert(JSON.stringify(values));
+            axios.post("http://localhost:3100/login/",values).then((res)=>{      
+              if (res.status==200) {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Email or password is wrong",
+                });
+              }
+              if (res.status==201) {
+                Navigate("/home")
+              }
+            })
           }}
         >
           {({

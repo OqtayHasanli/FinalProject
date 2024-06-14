@@ -9,7 +9,6 @@ import Shop from "../pages/shop/Shop"
 
 
 export const routes=[{
-    path: "",
     element:<Layout/>,
     children: [
         {

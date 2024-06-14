@@ -19,13 +19,17 @@ const getbyID = async (req, res) => {
 };
 
 const Postfind = async (req, res) => {
-  try {
+  let Userfind = await Post.findOne({ email: req.body.email })
+  if (Userfind) {
+    res.status(201).send("Bu email istifade olunub")
+  } else {
+
     const post = new Post(req.body);
     await post.save();
-    res.send(post);
-  } catch (error) {
-    console.log(error);
+    res.status(200).send(post);
+
   }
+
 };
 
 const DeletebyID = async (req, res) => {
@@ -46,4 +50,17 @@ const PatchbyID = async (req, res) => {
   }
 };
 
-module.exports={getAll,getbyID,Postfind,DeletebyID,PatchbyID}
+
+const login = async (req, res) => {
+  let Userfind = await Post.findOne({ email: req.body.email })
+  if (Userfind) {
+    res.status(201).send("Welcome")
+  } else {
+
+    res.status(200).send("E-mail or password is wrong")
+
+  }
+
+};
+
+module.exports = { getAll, getbyID, Postfind, DeletebyID, PatchbyID ,login}
