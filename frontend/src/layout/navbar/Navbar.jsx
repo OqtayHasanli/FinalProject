@@ -14,22 +14,22 @@ const Navbar = () => {
       <div className='containNavbar'>
         <img className='navbarimage' src={logo} alt="" />
         <ul className='navbarul'>
-        
-        <Link className='linknav' to={"home"}> <li>Home</li></Link>
-          <li>About</li>
-          <li>Gallery</li>
-          <li>Contacts</li>
-          <li>Shop</li>
+
+          <Link className='linknav' to={"home"}> <li className='navlist'>Home</li></Link>
+          <li className='navlist'>About</li>
+          <li className='navlist'>Gallery</li>
+          <li className='navlist'>Contacts</li>
+          <li className='navlist'>Shop</li>
         </ul>
         <div className='socialnavbar'>
-        <FaInstagram className='navsocial' />
-        <FaTwitter className='navsocial' />
-        <FaYoutube className='navsocial' />
+          <FaInstagram className='navsocial' />
+          <FaTwitter className='navsocial' />
+          <FaYoutube className='navsocial' />
 
         </div>
 
       </div>
-      
+
     </div>
   )
 }

@@ -1,0 +1,556 @@
+.mainfooter {
+    min-height: 50vh;
+    background-color: rgba(0, 0, 0, 0.884);
+
+    .containerfooter {
+        width: 90%;
+        min-height: 50vh;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .leftside {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 35vh;
+
+            .logotext {
+                max-width: 250px;
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+
+                .phars {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    p {
+                        color: gray;
+                        font-weight: 500;
+                        font-size: 16px;
+                        font-family: Helvetica, sans-serif;
+                    }
+
+                }
+
+                .logooffooter {
+                    width: 200px;
+                    height: 30px;
+
+                }
+
+            }
+
+            .followus {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                color: white;
+
+                h5 {
+
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 18px;
+                }
+
+                .socialmedia {
+                    display: flex;
+                    gap: 30px;
+                }
+            }
+        }
+
+        .ourblogs {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 35vh;
+            max-width: 250px;
+
+            h2 {
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                font-size: 20px;
+            }
+
+            .dates {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .date {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    h4 {
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: white;
+                    }
+
+                    .icondate {
+                        display: flex;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: gray;
+                        font-size: 14px;
+                        gap: 10px;
+
+                        .footerclock {
+                            color: orangered !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .programs {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 35vh;
+            max-width: 250px;
+
+            h2 {
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                font-size: 20px;
+            }
+
+            .fiveprograms {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h4 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: white;
+                }
+            }
+        }
+
+        .getinfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 35vh;
+            max-width: 250px;
+
+            h2 {
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                font-size: 20px;
+            }
+
+            .contacts {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+
+                .contact {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .logodiv {
+                        display: flex;
+                        gap: 10px;
+
+                        h5 {
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: white;
+                        }
+
+                        .contactlogos {
+                            color: orangered;
+                            font-size: 20px;
+                        }
+
+                    }
+
+                    p {
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: gray;
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .mainfooter {
+        min-height: 50vh;
+        background-color: rgba(0, 0, 0, 0.884);
+    
+        .containerfooter {
+            width: 90%;
+            min-height: 50vh;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            .leftside {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+    
+                .logotext {
+                    max-width: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+    
+                    .phars {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+    
+                        p {
+                            color: gray;
+                            font-weight: 500;
+                            font-size: 16px;
+                            font-family: Helvetica, sans-serif;
+                        }
+    
+                    }
+    
+                    .logooffooter {
+                        width: 200px;
+                        height: 30px;
+    
+                    }
+    
+                }
+    
+                .followus {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    color: white;
+    
+                    h5 {
+    
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 18px;
+                    }
+    
+                    .socialmedia {
+                        display: flex;
+                        gap: 30px;
+                    }
+                }
+            }
+    
+            .ourblogs {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+                max-width: 250px;
+    
+                h3 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: white;
+                }
+    
+                .dates {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+    
+                    .date {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+    
+                        h4 {
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: white;
+                        }
+    
+                        .icondate {
+                            display: flex;
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: gray;
+                            font-size: 14px;
+                            gap: 10px;
+    
+                            .footerclock {
+                                color: orangered !important;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .programs {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+                max-width: 250px;
+                display: none;
+    
+                h3 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: white;
+                }
+    
+                .fiveprograms {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+    
+                    h4 {
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: white;
+                    }
+                }
+            }
+    
+            .getinfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+                max-width: 250px;
+    
+                h3 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: white;
+                }
+    
+                .contacts {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+    
+                    .contact {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+    
+                        .logodiv {
+                            display: flex;
+                            gap: 10px;
+    
+                            h5 {
+                                font-family: Arial, Helvetica, sans-serif;
+                                color: white;
+                            }
+    
+                            .contactlogos {
+                                color: orangered;
+                                font-size: 20px;
+                            }
+    
+                        }
+    
+                        p {
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: gray;
+                            font-size: 14px;
+                        }
+                    }
+    
+                }
+            }
+    
+        }
+    }
+}
+@media only screen and (max-width: 750px) {
+    .mainfooter {
+        min-height: 50vh;
+        background-color: rgba(0, 0, 0, 0.884);
+    
+        .containerfooter {
+            width: 90%;
+            min-height: 50vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 90px;
+            align-items: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+    
+            .leftside {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+    
+                .logotext {
+                    max-width: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+    
+                    .phars {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+    
+                        p {
+                            color: gray;
+                            font-weight: 500;
+                            font-size: 16px;
+                            font-family: Helvetica, sans-serif;
+                        }
+    
+                    }
+    
+                    .logooffooter {
+                        width: 200px;
+                        height: 30px;
+    
+                    }
+    
+                }
+    
+                .followus {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    color: white;
+    
+                    h5 {
+    
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 14px;
+                    }
+    
+                    .socialmedia {
+                        display: flex;
+                        gap: 30px;
+                    }
+                }
+            }
+    
+            .ourblogs {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+                max-width: 250px;
+    
+                h3 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: white;
+                }
+    
+                .dates {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+    
+                    .date {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+    
+                        h4 {
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: white;
+                        }
+    
+                        .icondate {
+                            display: flex;
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: gray;
+                            font-size: 14px;
+                            gap: 10px;
+    
+                            .footerclock {
+                                color: orangered !important;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .programs {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+                max-width: 250px;
+                display: none;
+    
+                h3 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: white;
+                }
+    
+                .fiveprograms {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+    
+                    h4 {
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: white;
+                    }
+                }
+            }
+    
+            .getinfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 35vh;
+                max-width: 250px;
+    
+                h3 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: white;
+                }
+    
+                .contacts {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+    
+                    .contact {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+    
+                        .logodiv {
+                            display: flex;
+                            gap: 10px;
+    
+                            h5 {
+                                font-family: Arial, Helvetica, sans-serif;
+                                color: white;
+                            }
+    
+                            .contactlogos {
+                                color: orangered;
+                                font-size: 20px;
+                            }
+    
+                        }
+    
+                        p {
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: gray;
+                            font-size: 14px;
+                        }
+                    }
+    
+                }
+            }
+    
+        }
+    }
+}
