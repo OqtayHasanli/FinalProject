@@ -3,9 +3,9 @@ const mongoose = require("mongoose")
 
 
 mongoose
-	.connect("mongodb://localhost:27017/acmedb", { useNewUrlParser: true })
+	.connect(process.env.Mongo_URL)
 	.then(() => {
 		console.log("Qosuldu");
 	}).catch((err)=>{
-        console.log("qosulmadi"+err);
+        console.log("qosulmadi"+""+err);
     })
