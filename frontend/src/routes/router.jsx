@@ -5,6 +5,7 @@ import Login from "../pages/login/Login"
 import Register from "../pages/register/Register"
 import Layout from "../layout/Layout"
 import Shop from "../pages/shop/Shop"
+import Aboutpage from "../pages/about/Aboutpage"
 
 
 
@@ -18,7 +19,11 @@ export const routes=[{
         {
             path: "shop",
             element: <Shop/>,
-          },
+        },
+        {
+            path: "about",
+            element: <Aboutpage/>,
+        },
       ],
 },
 {
