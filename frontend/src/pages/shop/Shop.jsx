@@ -1,9 +1,145 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import "./shop.scss";
+import { FaHeart } from "react-icons/fa";
 
 const Shop = () => {
-  return (
-    <div>Shop</div> 
-  )
-}
+  const [data, setData] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [sortOrder, setSortOrder] = useState(''); 
+  const [minPrice, setMinPrice] = useState(''); 
+  const [maxPrice, setMaxPrice] = useState(''); 
 
-export default Shop
+  useEffect(() => {
+    axios.get("http://localhost:3100/products").then((res) => {
+      setData(res.data);
+      setFilteredResults(res.data); 
+    });
+  }, []);
+
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+    let filteredData = data;
+
+    if (searchValue !== '') {
+      filteredData = data.filter((item) =>
+        Object.values(item).join('').toLowerCase().includes(searchValue.toLowerCase())
+      );
+    }
+
+    if (minPrice || maxPrice) {
+      filteredData = filterByPrice(filteredData, minPrice, maxPrice);
+    }
+
+    if (sortOrder) {
+      filteredData = sortItems(filteredData, sortOrder);
+    }
+
+    setFilteredResults(filteredData);
+  };
+
+  const sortItems = (items, order) => {
+    if (order === 'A-Z') {
+      return [...items].sort((a, b) => a.title.localeCompare(b.title));
+    } else if (order === 'Z-A') {
+      return [...items].sort((a, b) => b.title.localeCompare(a.title));
+    }
+    return items;
+  };
+
+  const filterByPrice = (items, min, max) => {
+    return items.filter(item => {
+      const price = parseFloat(item.price);
+      const minCondition = min !== '' ? price >= parseFloat(min) : true;
+      const maxCondition = max !== '' ? price <= parseFloat(max) : true;
+      return minCondition && maxCondition;
+    });
+  };
+
+  const handleSort = (order) => {
+    setSortOrder(order);
+    let sortedData = sortItems(filteredResults, order);
+    setFilteredResults(sortedData);
+  };
+
+  const handlePriceFilter = () => {
+    let filteredData = data;
+
+    if (searchInput) {
+      filteredData = filteredData.filter((item) =>
+        Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+      );
+    }
+
+    filteredData = filterByPrice(filteredData, minPrice, maxPrice);
+
+    if (sortOrder) {
+      filteredData = sortItems(filteredData, sortOrder);
+    }
+
+    setFilteredResults(filteredData);
+  };
+
+  const displayedData = searchInput.length > 0 || sortOrder || minPrice || maxPrice ? filteredResults : data;
+
+  return (
+    <>
+      <div className='searchfilter'>
+        <div className='searchfiltercontainer'>
+        <div className='pricefilter'>
+            <input
+              type="number"
+              placeholder='Min Price'
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
+              className='priceinput'
+              
+            />
+            <input
+              type="number"
+              placeholder='Max Price'
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+              className='priceinput'
+            />
+            <button className='applypricefilter' onClick={handlePriceFilter}>Apply</button>
+          </div>
+
+          <div className='sort'>
+            <button className='sortaz' onClick={() => handleSort('A-Z')}>Sort A-Z</button>
+            <button className='sortaz' onClick={() => handleSort('Z-A')}>Sort Z-A</button>
+          </div>
+          <div className='input'>
+            <input
+              type="text"
+              placeholder='Search...'
+              onChange={(e) => searchItems(e.target.value)}
+              className='searchshop'
+            />
+          </div>
+
+        </div>
+      </div>
+      <div className='mainshop'>
+        <div className='containershop'>
+          {displayedData.map((elem) => (
+            <div key={elem.id} className='shopCard'>
+              <img className='imageshopcard' src={elem.image} alt={elem.title} />
+              <div className='carddesc'>
+                <h4>{elem.title}</h4>
+                <p className='desccard'>{elem.desc}</p>
+                <div className='starcard'>star</div>
+                <p className='pricecard'>{elem.price}$</p>
+              </div>
+              <button className='addtocard'>Add to Card</button>
+              <FaHeart className='addfav' />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Shop;

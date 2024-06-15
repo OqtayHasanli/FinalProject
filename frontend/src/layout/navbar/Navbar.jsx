@@ -19,7 +19,7 @@ const Navbar = () => {
           <li className='navlist'>About</li>
           <li className='navlist'>Gallery</li>
           <li className='navlist'>Contacts</li>
-          <li className='navlist'>Shop</li>
+          <Link className='linknav' to={"shop"}> <li className='navlist'>Shop</li></Link>
         </ul>
         <div className='socialnavbar'>
           <FaInstagram className='navsocial' />
