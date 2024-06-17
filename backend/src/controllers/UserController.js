@@ -1,5 +1,24 @@
 const express = require("express");
 const Post = require("../models/UserModel");
+var jwt = require('jsonwebtoken');
+
+const login = async (req, res) => {
+  let Userfind = await Post.findOne({ email: req.body.email })
+ 
+  if (Userfind) {
+    let token = jwt.sign({ email: req.body.email }, process.env.SECRET_CODE, 
+      
+      
+    );
+    console.log("token" ,token)
+    res.status(201).send(token)
+  } else {
+
+    res.status(200).send("E-mail or password is wrong")
+
+  }
+
+};
 
 const getAll = async (req, res) => {
   try {
@@ -51,16 +70,6 @@ const PatchbyID = async (req, res) => {
 };
 
 
-const login = async (req, res) => {
-  let Userfind = await Post.findOne({ email: req.body.email })
-  if (Userfind) {
-    res.status(201).send("Welcome")
-  } else {
 
-    res.status(200).send("E-mail or password is wrong")
-
-  }
-
-};
 
 module.exports = { getAll, getbyID, Postfind, DeletebyID, PatchbyID ,login}

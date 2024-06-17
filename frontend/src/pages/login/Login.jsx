@@ -31,7 +31,8 @@ const Login = () => {
           validationSchema={schema}
           initialValues={{ email: "", password: "" }}
           onSubmit={(values) => {
-            axios.post("http://localhost:3100/login/",values).then((res)=>{      
+            axios.post("http://localhost:3100/login/",values).then((res)=>{   
+              localStorage.setItem("token",res.data)   
               if (res.status==200) {
                 Swal.fire({
                   icon: "error",

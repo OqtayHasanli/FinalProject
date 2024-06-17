@@ -12,7 +12,13 @@ const Shop = () => {
   const [maxPrice, setMaxPrice] = useState(''); 
 
   useEffect(() => {
-    axios.get("http://localhost:3100/products").then((res) => {
+    let token=localStorage.getItem("token")
+    console.log(token);
+    axios.get("http://localhost:3100/products",{
+      headers:{
+        Authorization: `barear ${token}`
+      }
+    }).then((res) => {
       setData(res.data);
       setFilteredResults(res.data); 
     });
@@ -124,7 +130,7 @@ const Shop = () => {
       <div className='mainshop'>
         <div className='containershop'>
           {displayedData.map((elem) => (
-            <div key={elem.id} className='shopCard'>
+            <div key={elem._id} className='shopCard'>
               <img className='imageshopcard' src={elem.image} alt={elem.title} />
               <div className='carddesc'>
                 <h4>{elem.title}</h4>
