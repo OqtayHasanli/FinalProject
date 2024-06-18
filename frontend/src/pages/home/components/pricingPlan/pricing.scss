@@ -1,0 +1,380 @@
+.pricingmain {
+    min-height: 130vh;
+    position: relative;
+
+    .image {
+        width: 100%;
+        min-height: 130vh;
+        z-index: -1;
+        position: absolute;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        align-items: center;
+        justify-content: center;
+
+        .topside {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding-top: 110px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                font-size: 40px;
+
+            }
+
+            p {
+                max-width: 600px;
+                text-align: center;
+
+            }
+
+        }
+
+        .cards {
+            display: flex;
+            gap: 30px;
+
+            .card {
+                width: 390px;
+                height: 550px;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                position: relative;
+                .favorite{
+                    position: absolute;
+                    color: orangered;
+                    font-size: 30px;
+                    top: 10px;
+                    right: 10px;
+                }
+
+                h3 {
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 22px;
+                }
+                .pricemonth{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .price{
+                        display: flex;
+                        p{
+                            font-size: 20px;
+                            font-weight: 600;
+                            margin-top: 10px;
+                            margin-right: 5px;
+                        }
+                        h4{
+                            font-size: 55px;
+                            font-family: Arial, Helvetica, sans-serif;
+
+                        }
+                    }
+                }
+                .phars{
+                    display: flex;flex-direction: column;
+                        gap: 20px;
+                    p{
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 17px;
+                        text-align: center;
+                        
+                    }
+                }
+                button{
+                    border: solid 2px rgb(194, 52, 0);
+                    background-color:transparent;
+                    width: 170px;
+                    height: 45px;
+                    color: orangered;
+                    cursor: pointer;
+                    font-weight: 700;
+                    margin-top: 15px;
+                    transition: 300ms;
+                    border-radius: 8px;
+                    margin-left: 25px;
+                    &:hover{
+                        background-color: orangered;
+                        border: none;
+                        color: white;
+                    }
+        
+                }
+
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .pricingmain {
+        min-height: 130vh;
+        position: relative;
+    
+        .image {
+            width: 100%;
+            height: 278.5vh;
+            z-index: -1;
+            position: absolute;
+        }
+    
+        .container {
+            margin: 0 auto;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            align-items: center;
+            justify-content: center;
+    
+            .topside {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                padding-top: 110px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                align-items: center;
+                justify-content: center;
+    
+                h2 {
+                    font-size: 26px;
+                    text-align: center;
+    
+                }
+    
+                p {
+                    max-width: 600px;
+                    text-align: center;
+    
+                }
+    
+            }
+    
+            .cards {
+                display: flex;
+                gap: 30px;
+                flex-direction: column;
+                padding-bottom: 60px;
+    
+                .card {
+                    width: 390px;
+                    height: 550px;
+                    background-color: white;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 50px 0;
+                    position: relative;
+                    .favorite{
+                        position: absolute;
+                        color: orangered;
+                        font-size: 30px;
+                        top: 10px;
+                        right: 10px;
+                    }
+    
+                    h3 {
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 22px;
+                    }
+                    .pricemonth{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        .price{
+                            display: flex;
+                            p{
+                                font-size: 20px;
+                                font-weight: 600;
+                                margin-top: 10px;
+                                margin-right: 5px;
+                            }
+                            h4{
+                                font-size: 55px;
+                                font-family: Arial, Helvetica, sans-serif;
+    
+                            }
+                        }
+                    }
+                    .phars{
+                        display: flex;flex-direction: column;
+                            gap: 20px;
+                        p{
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 17px;
+                            text-align: center;
+                            
+                        }
+                    }
+                    button{
+                        border: solid 2px rgb(194, 52, 0);
+                        background-color:transparent;
+                        width: 170px;
+                        height: 45px;
+                        color: orangered;
+                        cursor: pointer;
+                        font-weight: 700;
+                        margin-top: 15px;
+                        transition: 300ms;
+                        border-radius: 8px;
+                        margin-left: 25px;
+                        &:hover{
+                            background-color: orangered;
+                            border: none;
+                            color: white;
+                        }
+            
+                    }
+    
+                }
+            }
+        }
+    }
+    
+    
+}
+@media only screen and (max-width: 410px) {
+    .pricingmain {
+        min-height: 130vh;
+        position: relative;
+    
+        .image {
+            width: 100%;
+            height: 278.5vh;
+            z-index: -1;
+            position: absolute;
+        }
+    
+        .container {
+            margin: 0 auto;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            align-items: center;
+            justify-content: center;
+    
+            .topside {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                padding-top: 110px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                align-items: center;
+                justify-content: center;
+    
+                h2 {
+                    font-size: 26px;
+                    text-align: center;
+    
+                }
+    
+                p {
+                    max-width: 600px;
+                    text-align: center;
+    
+                }
+    
+            }
+    
+            .cards {
+                display: flex;
+                gap: 30px;
+                flex-direction: column;
+                padding-bottom: 60px;
+    
+                .card {
+                    width: 280px;
+                    height: 550px;
+                    background-color: white;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 50px 0;
+                    position: relative;
+                    .favorite{
+                        position: absolute;
+                        color: orangered;
+                        font-size: 30px;
+                        top: 10px;
+                        right: 10px;
+                    }
+    
+                    h3 {
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 22px;
+                    }
+                    .pricemonth{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        .price{
+                            display: flex;
+                            p{
+                                font-size: 20px;
+                                font-weight: 600;
+                                margin-top: 10px;
+                                margin-right: 5px;
+                            }
+                            h4{
+                                font-size: 55px;
+                                font-family: Arial, Helvetica, sans-serif;
+    
+                            }
+                        }
+                    }
+                    .phars{
+                        display: flex;flex-direction: column;
+                            gap: 20px;
+                        p{
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 17px;
+                            text-align: center;
+                            
+                        }
+                    }
+                    button{
+                        border: solid 2px rgb(194, 52, 0);
+                        background-color:transparent;
+                        width: 170px;
+                        height: 45px;
+                        color: orangered;
+                        cursor: pointer;
+                        font-weight: 700;
+                        margin-top: 15px;
+                        transition: 300ms;
+                        border-radius: 8px;
+                        margin-left: 25px;
+                        &:hover{
+                            background-color: orangered;
+                            border: none;
+                            color: white;
+                        }
+            
+                    }
+    
+                }
+            }
+        }
+    }
+    
+    
+}

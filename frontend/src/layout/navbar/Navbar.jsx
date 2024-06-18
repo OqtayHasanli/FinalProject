@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./navbar.scss";
 import logo from "../../assets/images/logo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {FaCircleUser } from "react-icons/fa6";
 
 const Navbar = () => {
@@ -10,6 +10,7 @@ const Navbar = () => {
   const toggleProfileVisibility = () => {
     setProfileVisible(!isProfileVisible);
   };
+  const Navigate=useNavigate()
 
   return (
     <div className='mainnav'>
@@ -33,7 +34,10 @@ const Navbar = () => {
               <button className='mybasket'>My Basket</button>
               <button className='myfavorite'>My Favorite</button>
             </div>
-            <button className='logutbtn'>Log out</button>
+            <button className='logutbtn' onClick={()=>{
+              localStorage.removeItem("token")
+              Navigate("/")
+            }}>Log out</button>
           </div>
         )}
       </div>
