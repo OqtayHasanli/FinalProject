@@ -1,0 +1,174 @@
+.maincrosfit{
+    background-color: rgb(25, 25, 25);
+    width: 100%;
+    .container{
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 100px 0;
+        .leftside{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 47%;
+            h2{
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 40px;
+            }
+            h4{
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+            }
+            p{
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                // font-size: 20px;
+                display: grid;
+                row-gap: 10px;     
+            }
+            button{
+                border: solid 1px orangered;
+                background: linear-gradient(330deg, rgba(255,0,0,1) 0%, rgba(198,42,35,1) 56%, rgba(253,171,45,1) 100%);
+                width: 170px;
+                height: 45px;
+                color: white;
+                cursor: pointer;
+                font-weight: 700;
+                margin-top: 15px;
+                transition: 300ms;
+                border-radius: 8px;
+                &:hover{
+                    background: orangered;
+                }
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    
+    .maincrosfit{
+        background-color: rgb(25, 25, 25);
+        width: 100%;
+        .container{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 0;
+            flex-direction: column;
+            gap: 40px;
+            
+            .leftside{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                width:100%;
+                align-items: center;
+                h2{
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 40px;
+                }
+                h4{
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 20px;
+                }
+                p{
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
+                    // font-size: 20px;
+                    display: grid;
+                    row-gap: 10px;     
+                }
+                button{
+                    border: solid 1px orangered;
+                    background: linear-gradient(330deg, rgba(255,0,0,1) 0%, rgba(198,42,35,1) 56%, rgba(253,171,45,1) 100%);
+                    width: 170px;
+                    height: 45px;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: 700;
+                    margin-top: 15px;
+                    transition: 300ms;
+                    border-radius: 8px;
+                    &:hover{
+                        background: orangered;
+                    }
+                }
+            }
+    
+        }
+    }
+    
+}
+@media only screen and (max-width: 550px) {
+    
+    .maincrosfit{
+        background-color: rgb(25, 25, 25);
+        width: 100%;
+        .container{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 0;
+            flex-direction: column;
+            gap: 40px;
+            
+            .leftside{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                width:100%;
+                align-items: center;
+                h2{
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 32px;
+                }
+                h4{
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 20px;
+                }
+                p{
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
+                    // font-size: 20px;
+                    display: grid;
+                    row-gap: 10px;     
+                }
+                button{
+                    border: solid 1px orangered;
+                    background: linear-gradient(330deg, rgba(255,0,0,1) 0%, rgba(198,42,35,1) 56%, rgba(253,171,45,1) 100%);
+                    width: 170px;
+                    height: 45px;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: 700;
+                    margin-top: 15px;
+                    transition: 300ms;
+                    border-radius: 8px;
+                    &:hover{
+                        background: orangered;
+                    }
+                }
+            }
+            img{
+                max-width: 100%;
+      height: auto;
+            }
+    
+        }
+    }
+    
+}
