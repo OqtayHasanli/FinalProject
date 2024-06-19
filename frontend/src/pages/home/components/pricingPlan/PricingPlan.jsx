@@ -14,7 +14,7 @@ const PricingPlan = () => {
                 </div>
                 <div className='cards'>
                     <div className='card'>
-                        <h3>NORMAL</h3>
+                        <h4>NORMAL</h4>
                         <div className='pricemonth'>
                             
 
@@ -41,7 +41,7 @@ const PricingPlan = () => {
                     </div>
                     <div className='card'>
                     <FaStar className='favorite' />
-                        <h3>PROFESSIONAL</h3>
+                        <h4>PROFESSIONAL</h4>
                         <div className='pricemonth'>
                             
 
@@ -67,7 +67,7 @@ const PricingPlan = () => {
 
                     </div>
                     <div className='card'>
-                        <h3>ADVANCED</h3>
+                        <h4>ADVANCED</h4>
                         <div className='pricemonth'>
                             
 

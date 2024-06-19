@@ -43,7 +43,7 @@ const Register = () => {
             });
           }
           if (res.status==200) {
-            Navigate("/home")
+            Navigate("/")
           }
         })
       }}
