@@ -11,7 +11,7 @@ const getAll = async (req, res) => {
 };
 const getbyID = async (req, res) => {
   try {
-    const posts = await Post.findOne();
+    const posts = await Post.findOne({_id:req.params.id});
     res.send(posts);
   } catch (error) {
     console.log(error);

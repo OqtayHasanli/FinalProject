@@ -3,14 +3,14 @@ const Post = require("../models/UserModel");
 var jwt = require('jsonwebtoken');
 
 const login = async (req, res) => {
-  let Userfind = await Post.findOne({ email: req.body.email })
- 
+  let Userfind = await Post.findOne({ email: req.body.email , password: req.body.password})
+
   if (Userfind) {
-    let token = jwt.sign({ email: req.body.email }, process.env.SECRET_CODE, 
-      
-      
+    let token = jwt.sign({ email: req.body.email }, process.env.SECRET_CODE,
+
+
     );
-    console.log("token" ,token)
+    console.log("token", token)
     res.status(201).send(token)
   } else {
 
@@ -30,7 +30,7 @@ const getAll = async (req, res) => {
 };
 const getbyID = async (req, res) => {
   try {
-    const posts = await Post.findOne();
+    const posts = await Post.findOne({ _id: req.params.id });
     res.send(posts);
   } catch (error) {
     console.log(error);
@@ -72,4 +72,4 @@ const PatchbyID = async (req, res) => {
 
 
 
-module.exports = { getAll, getbyID, Postfind, DeletebyID, PatchbyID ,login}
+module.exports = { getAll, getbyID, Postfind, DeletebyID, PatchbyID, login }
