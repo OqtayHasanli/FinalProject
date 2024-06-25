@@ -9,9 +9,9 @@ const Hero = () => {
     <div className='mainAboutHero'>
         <img src={photo} alt="" />
         <div className='container'>
-            <h1>
+            <h2>
             ABOUT US
-            </h1>
+            </h2>
             <div className='homeabout'>
             <FaHome className='icon' /> Home <IoIosArrowForward className='icon' /> About Us
             </div>
