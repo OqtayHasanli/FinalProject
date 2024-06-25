@@ -2,25 +2,26 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import "./shop.scss";
 import { FaHeart } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
   const [data, setData] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [sortOrder, setSortOrder] = useState(''); 
-  const [minPrice, setMinPrice] = useState(''); 
-  const [maxPrice, setMaxPrice] = useState(''); 
+  const [sortOrder, setSortOrder] = useState('');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
 
   useEffect(() => {
-    let token=localStorage.getItem("token")
+    let token = localStorage.getItem("token")
     console.log(token);
-    axios.get("http://localhost:3100/products",{
-      headers:{
+    axios.get("http://localhost:3100/products", {
+      headers: {
         Authorization: `barear ${token}`
       }
     }).then((res) => {
       setData(res.data);
-      setFilteredResults(res.data); 
+      setFilteredResults(res.data);
     });
   }, []);
 
@@ -93,14 +94,14 @@ const Shop = () => {
     <>
       <div className='searchfilter'>
         <div className='searchfiltercontainer'>
-        <div className='pricefilter'>
+          <div className='pricefilter'>
             <input
               type="number"
               placeholder='Min Price'
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
               className='priceinput'
-              
+
             />
             <input
               type="number"
@@ -130,17 +131,20 @@ const Shop = () => {
       <div className='mainshop'>
         <div className='containershop'>
           {displayedData.map((elem) => (
-            <div key={elem._id} className='shopCard'>
-              <img className='imageshopcard' src={elem.image} alt={elem.title} />
-              <div className='carddesc'>
-                <h4>{elem.title}</h4>
-                <p className='desccard'>{elem.desc}</p>
-                <div className='starcard'>star</div>
-                <p className='pricecard'>{elem.price}$</p>
+            <Link className='shoplink' to={`/${elem._id}`}>
+              <div key={elem._id} className='shopCard'>
+
+                <img className='imageshopcard' src={elem.image} alt={elem.title} />
+                <div className='carddesc'>
+                  <h4>{elem.title}</h4>
+                  <p className='desccard'>{elem.desc}</p>
+                  <p className='pricecard'>{elem.price}$</p>
+                </div>
+                <button className='addtocard'>Add to Card</button>
+                <FaHeart className='addfav' />
+
               </div>
-              <button className='addtocard'>Add to Card</button>
-              <FaHeart className='addfav' />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

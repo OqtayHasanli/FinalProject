@@ -6,6 +6,7 @@ import Register from "../pages/register/Register"
 import Layout from "../layout/Layout"
 import Shop from "../pages/shop/Shop"
 import Aboutpage from "../pages/about/Aboutpage"
+import Detail from "../pages/detail/Detail"
 
 
 
@@ -23,6 +24,10 @@ export const routes=[{
         {
             path: "about",
             element: <Aboutpage/>,
+        },
+        {
+            path: "/:id",
+            element: <Detail/>,
         },
       ],
 },
