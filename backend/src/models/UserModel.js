@@ -6,5 +6,5 @@ const schema = mongoose.Schema({
   password: String,
   basket:[{ type: Schema.Types.ObjectId, ref: 'Products' }]
 });
-
+ 
 module.exports = mongoose.model("User", schema);

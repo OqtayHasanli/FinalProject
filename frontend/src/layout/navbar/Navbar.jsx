@@ -18,7 +18,7 @@ const Navbar = () => {
         <img className='navbarimage' src={logo} alt="Logo" />
         <ul className='navbarul'>
           <Link className='linknav' to={"home"}> <li className='navlist'>Home</li></Link>
-          <li className='navlist'>About</li>
+          <Link className='linknav' to={"about"}> <li className='navlist'>About</li></Link>
           <li className='navlist'>Gallery</li>
           <li className='navlist'>Contacts</li>
           <Link className='linknav' to={"shop"}> <li className='navlist'>Shop</li></Link>
@@ -29,7 +29,7 @@ const Navbar = () => {
         </div>
         {isProfileVisible && (
           <div className='profilepage'>
-            <h3>gulsan@gmail.com</h3>
+            <h3>oqtay@gmail.com</h3>
             <div className='basketfav'>
               <button className='mybasket'>My Basket</button>
               <button className='myfavorite'>My Favorite</button>
