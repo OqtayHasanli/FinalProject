@@ -18,7 +18,7 @@ const Navbar = () => {
         <img className='navbarimage' src={logo} alt="Logo" />
         <ul className='navbarul'>
           <Link className='linknav' to={"home"}> <li className='navlist'>Home</li></Link>
-          <Link className='linknav' to={"about"}> <li className='navlist'>About</li></Link>
+          <Link className='linknav' to={"about"}> <li className='navlist'>About Us</li></Link>
           <li className='navlist'>Gallery</li>
           <li className='navlist'>Contacts</li>
           <Link className='linknav' to={"shop"}> <li className='navlist'>Shop</li></Link>
