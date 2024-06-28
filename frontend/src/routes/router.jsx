@@ -7,6 +7,8 @@ import Layout from "../layout/Layout"
 import Shop from "../pages/shop/Shop"
 import Aboutpage from "../pages/about/Aboutpage"
 import Detail from "../pages/detail/Detail"
+import BasketPage from "../pages/basket/BasketPage"
+import Gallery from "../pages/gallery/Gallery"
 
 
 
@@ -28,6 +30,14 @@ export const routes=[{
         {
             path: "/:id",
             element: <Detail/>,
+        },
+        {
+            path: "basket",
+            element: <BasketPage />,
+        },
+        {
+            path: "gallery",
+            element: <Gallery />,
         },
       ],
 },

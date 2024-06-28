@@ -3,9 +3,16 @@ import "./navbar.scss";
 import logo from "../../assets/images/logo.png";
 import { Link, useNavigate } from 'react-router-dom';
 import {FaCircleUser } from "react-icons/fa6";
+import { jwtDecode } from 'jwt-decode';
 
 const Navbar = () => {
   const [isProfileVisible, setProfileVisible] = useState(false);
+//----------------------------------------
+// const [Decoded, setDecoded] = useState(null)
+//   const token = localStorage.getItem("token")
+//   const userDecoded = jwtDecode(token);
+//   console.log(Decoded.email);
+//------------------------------------------
 
   const toggleProfileVisibility = () => {
     setProfileVisible(!isProfileVisible);
@@ -19,7 +26,7 @@ const Navbar = () => {
         <ul className='navbarul'>
           <Link className='linknav' to={"home"}> <li className='navlist'>Home</li></Link>
           <Link className='linknav' to={"about"}> <li className='navlist'>About Us</li></Link>
-          <li className='navlist'>Gallery</li>
+          <Link className='linknav' to={"gallery"}> <li className='navlist'>Gallery</li></Link>
           <li className='navlist'>Contacts</li>
           <Link className='linknav' to={"shop"}> <li className='navlist'>Shop</li></Link>
         </ul>
@@ -31,7 +38,11 @@ const Navbar = () => {
           <div className='profilepage'>
             <h3>oqtay@gmail.com</h3>
             <div className='basketfav'>
+              <Link to={"basket"}>
               <button className='mybasket'>My Basket</button>
+
+              </Link>
+              
               <button className='myfavorite'>My Favorite</button>
             </div>
             <button className='logutbtn' onClick={()=>{

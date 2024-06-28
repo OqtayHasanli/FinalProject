@@ -3,10 +3,10 @@ const Post = require("../models/UserModel");
 var jwt = require('jsonwebtoken');
 
 const login = async (req, res) => {
-  let Userfind = await Post.findOne({ email: req.body.email , password: req.body.password})
+  let Userfind = await Post.findOne({ email: req.body.email, password: req.body.password })
 
   if (Userfind) {
-    let token = jwt.sign({ email: req.body.email }, process.env.SECRET_CODE,
+    let token = jwt.sign({ email: req.body.email, id: Userfind._id }, process.env.SECRET_CODE,
 
 
     );
@@ -17,6 +17,7 @@ const login = async (req, res) => {
     res.status(200).send("E-mail or password is wrong")
 
   }
+
 
 };
 
