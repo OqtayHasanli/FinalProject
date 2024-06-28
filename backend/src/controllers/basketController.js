@@ -2,8 +2,6 @@ const userModel = require("../models/UserModel");
 
 
 const addBasket = async (req, res) => {
-
-
     try {
 
         const { id, productId } = req.body;
@@ -28,6 +26,7 @@ const addBasket = async (req, res) => {
         res.send(error.message);
     }
 };
+
 
 const deleteBasket = async (req, res) => {
 
@@ -60,7 +59,7 @@ const deleteBasket = async (req, res) => {
 const showBasket = async (req, res) => {
     try {
         const { id } = req.body;
-        const user = await userModel.findById(id).populate("basket")
+        const user = await userModel.findById(id).populate("basket.productId")
         res.status(200).json(user.basket);
     } catch (error) {
         res.send(error.message);

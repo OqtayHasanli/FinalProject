@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./navbar.scss";
 import logo from "../../assets/images/logo.png";
 import { Link, useNavigate } from 'react-router-dom';
-import {FaCircleUser } from "react-icons/fa6";
+import { FaCircleUser } from "react-icons/fa6";
 import { jwtDecode } from 'jwt-decode';
 
 const Navbar = () => {
   const [isProfileVisible, setProfileVisible] = useState(false);
-//----------------------------------------
-// const [Decoded, setDecoded] = useState(null)
-//   const token = localStorage.getItem("token")
-//   const userDecoded = jwtDecode(token);
-//   console.log(Decoded.email);
-//------------------------------------------
+  // ----------------------------------------
+  const [Decoded, setDecoded] = useState(null)
+  const token = localStorage.getItem("token")
+  const userDecoded = jwtDecode(token);
+  useEffect(() => {
+    setDecoded(userDecoded)
+  }, [])
+  // ------------------------------------------
 
   const toggleProfileVisibility = () => {
     setProfileVisible(!isProfileVisible);
   };
-  const Navigate=useNavigate()
+  const Navigate = useNavigate()
 
   return (
     <div className='mainnav'>
@@ -36,16 +38,16 @@ const Navbar = () => {
         </div>
         {isProfileVisible && (
           <div className='profilepage'>
-            <h3>oqtay@gmail.com</h3>
+            <h3>{Decoded.email}</h3>
             <div className='basketfav'>
               <Link to={"basket"}>
-              <button className='mybasket'>My Basket</button>
+                <button className='mybasket'>My Basket</button>
 
               </Link>
-              
+
               <button className='myfavorite'>My Favorite</button>
             </div>
-            <button className='logutbtn' onClick={()=>{
+            <button className='logutbtn' onClick={() => {
               localStorage.removeItem("token")
               Navigate("/")
             }}>Log out</button>

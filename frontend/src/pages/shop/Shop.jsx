@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import "./shop.scss";
 import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 const Shop = () => {
   const [data, setData] = useState([]);
@@ -11,6 +12,32 @@ const Shop = () => {
   const [sortOrder, setSortOrder] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+
+  //----------------------------------------------
+  const token = localStorage.getItem("token")
+  const [Decoded, setDecoded] = useState([])
+
+  const userDecoded = jwtDecode(token);
+
+  useEffect(() => {
+    setDecoded(userDecoded)
+  }, [])
+  const addBasket = (x) => {
+
+    fetch("http://localhost:3100/addBasket", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json())
+
+  }
+  //---------------------------------------------
 
   useEffect(() => {
     let token = localStorage.getItem("token")
@@ -131,20 +158,23 @@ const Shop = () => {
       <div className='mainshop'>
         <div className='containershop'>
           {displayedData.map((elem) => (
-            <Link className='shoplink' to={`/${elem._id}`}>
-              <div key={elem._id} className='shopCard'>
 
+            <div key={elem._id} className='shopCard'>
+              <Link className='shoplink' to={`/${elem._id}`}>
                 <img className='imageshopcard' src={elem.image} alt={elem.title} />
-                <div className='carddesc'>
-                  <h4>{elem.title}</h4>
-                  <p className='desccard'>{elem.desc}</p>
-                  <p className='pricecard'>{elem.price}$</p>
-                </div>
-                <button className='addtocard'>Add to Card</button>
-                <FaHeart className='addfav' />
-
+              </Link>
+              <div className='carddesc'>
+                <h4>{elem.title}</h4>
+                <p className='desccard'>{elem.desc}</p>
+                <p className='pricecard'>{elem.price}$</p>
               </div>
-            </Link>
+              <button className='addtocard' onClick={() => {
+                addBasket(elem._id)
+              }}>Add to Card</button>
+              <FaHeart className='addfav' />
+
+            </div>
+
           ))}
         </div>
       </div>
