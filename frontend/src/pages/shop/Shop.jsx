@@ -13,7 +13,7 @@ const Shop = () => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
 
-  //----------------------------------------------
+  //Basket---------------------------------
   const token = localStorage.getItem("token")
   const [Decoded, setDecoded] = useState([])
 
@@ -37,8 +37,52 @@ const Shop = () => {
     }).then(res => res.json())
 
   }
-  //---------------------------------------------
+  //Favorite-------------------------------------------
 
+  const addFavorite = (x) => {
+
+    fetch("http://localhost:3100/addFavorite", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json())
+
+  }
+  const [Fav, setFav] = useState([])
+  const showFavorite = () => {
+
+    fetch("http://localhost:3100/showFavorite", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id
+      })
+    }).then(res => res.json()).then(data => setFav(data))
+
+  }
+
+  useEffect(() => {
+
+    showFavorite()
+
+  }, [Fav])
+  useEffect(() => {
+    if (Decoded) {
+      showFavorite();
+    }
+  }, [Decoded]);
+
+
+  //------------------------------------------------------
   useEffect(() => {
     let token = localStorage.getItem("token")
     console.log(token);
@@ -171,7 +215,9 @@ const Shop = () => {
               <button className='addtocard' onClick={() => {
                 addBasket(elem._id)
               }}>Add to Card</button>
-              <FaHeart className='addfav' />
+              <FaHeart className={(Fav.find(item => item._id == elem._id)) ? "afterfav" : 'addfav'} onClick={() => {
+                addFavorite(elem._id)
+              }} />
 
             </div>
 

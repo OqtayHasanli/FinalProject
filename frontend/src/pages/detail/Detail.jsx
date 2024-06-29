@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import "./detail.scss"
 import axios from 'axios';
 import { FaHeart } from "react-icons/fa";
+import { jwtDecode } from 'jwt-decode';
+
 const Detail = () => {
 
   const [detail, setdetail] = useState([]);
@@ -14,6 +16,61 @@ const Detail = () => {
       .then((res) => { setdetail(res.data), console.log(res.data); }).catch((err) => console.error('Axios error:', err));;
 
   }, [id]);
+
+  const token = localStorage.getItem("token")
+
+
+  const [Decoded, setDecoded] = useState([])
+  const userDecoded = jwtDecode(token);
+
+  useEffect(() => {
+    setDecoded(userDecoded)
+  }, [])
+
+
+  const addFavorite = (x) => {
+
+    fetch("http://localhost:3100/addFavorite", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json())
+
+  }
+
+
+  const [Fav, setFav] = useState([])
+  const showFavorite = () => {
+
+    fetch("http://localhost:3100/showFavorite", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id
+      })
+    }).then(res => res.json()).then(data => setFav(data))
+
+  }
+  useEffect(() => {
+
+    showFavorite()
+
+  }, [Fav])
+  useEffect(() => {
+    if (Decoded) {
+      showFavorite();
+    }
+  }, [Decoded]);
+
   return (
     <div className='maindetail'>
       <div className='container'>
@@ -26,8 +83,10 @@ const Detail = () => {
 
           </div>
           <div className='buttons'>
-          <button className='addtocard'>Add to Card</button>
-          <FaHeart className='addfav' />
+            <button className='addtocard'>Add to Card</button>
+            <FaHeart className={(Fav.find(item => item._id == detail._id)) ? "afterfav" : 'addfav'} onClick={() => {
+              addFavorite(detail._id)
+            }} />
 
           </div>
         </div>

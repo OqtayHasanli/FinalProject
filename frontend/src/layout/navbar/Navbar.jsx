@@ -44,8 +44,9 @@ const Navbar = () => {
                 <button className='mybasket'>My Basket</button>
 
               </Link>
-
+              <Link to={"favorite"}>
               <button className='myfavorite'>My Favorite</button>
+              </Link>
             </div>
             <button className='logutbtn' onClick={() => {
               localStorage.removeItem("token")

@@ -5,7 +5,7 @@ import Users from './pages/users/Users';
 import Products from './pages/products/Products';
 import Layout from './layout/Layout';
 import Login from './pages/login/Login';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

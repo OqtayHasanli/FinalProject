@@ -39,10 +39,15 @@ const DeletebyID = async (req, res) => {
 
 const PatchbyID = async (req, res) => {
   try {
-    const post = await Post.findOne({ _id: req.params.id });
+    const post = await Post.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: req.body }, 
+      { new: true } 
+    );
     res.send(post);
   } catch (error) {
     console.log(error);
+    res.status(500).send("There was an error updating the post");
   }
 };
 

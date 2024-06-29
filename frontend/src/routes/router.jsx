@@ -9,6 +9,7 @@ import Aboutpage from "../pages/about/Aboutpage"
 import Detail from "../pages/detail/Detail"
 import BasketPage from "../pages/basket/BasketPage"
 import Gallery from "../pages/gallery/Gallery"
+import Favorite from "../pages/favorite/Favorite"
 
 
 
@@ -38,6 +39,10 @@ export const routes=[{
         {
             path: "gallery",
             element: <Gallery />,
+        },
+        {
+            path: "favorite",
+            element: <Favorite />,
         },
       ],
 },
