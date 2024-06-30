@@ -5,7 +5,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import "./basket.scss"
 import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom';
-
+import { SlBasket } from "react-icons/sl";
 
 const BasketPage = () => {
   const token = localStorage.getItem("token")
@@ -54,8 +54,8 @@ const BasketPage = () => {
           <title>Basket</title>
         </Helmet>
       </HelmetProvider>
-      {Basket == null ? (
-        <div>Basket is Empty</div>
+      {Basket.length == 0 ? (
+         <div className='emptyfav'><SlBasket className='emptybasket'/><h1>Your Basket is Empty</h1></div>
       ) : (
         <div className='mainbasket'>
           <div className='container'>
