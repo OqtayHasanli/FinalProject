@@ -16,7 +16,7 @@ router.patch("/users/:id",controller.PatchbyID)
 router.post("/login",controller.login)
 router.put('/addBasket',basketController.addBasket)
 router.put('/showBasket',basketController.showBasket) 
-router.put('/deleteBasket',basketController.deleteBasket) 
+
 
 router.put('/addFavorite',FavoriteController.addFavorite)
 router.put('/showFavorite',FavoriteController.showFavorite)

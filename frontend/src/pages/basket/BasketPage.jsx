@@ -2,6 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { jwtDecode } from 'jwt-decode';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import "./basket.scss"
+import { MdDelete } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 
 const BasketPage = () => {
@@ -46,7 +49,7 @@ const BasketPage = () => {
 
   return (
     <>
-    <HelmetProvider>
+      <HelmetProvider>
         <Helmet>
           <title>Basket</title>
         </Helmet>
@@ -54,10 +57,41 @@ const BasketPage = () => {
       {Basket == null ? (
         <div>Basket is Empty</div>
       ) : (
-        <div>
-          {...Basket.map((elem) => (
-            <p>{elem._id}</p>
-          ))}
+        <div className='mainbasket'>
+          <div className='container'>
+            {...Basket.map((elem) => (
+
+              <div className='cardbasket'>
+                <Link className='shoplink' to={`/${elem.productId._id}`}>
+                  <div className='imagediv'>
+                    <img src={elem.productId.image} alt="" />
+                  </div>
+                </Link>
+                <div className='texts'>
+                  <h6>
+                    {elem.productId.title}
+                  </h6>
+                  <p>
+                    {elem.productId.desc}
+                  </p>
+                </div>
+                <div className='countdiv'>
+                  <button>-</button>
+                  {elem.count}
+                  <button>+</button>
+                </div>
+                <div className='pricediv'>
+                  <div>Price: {elem.productId.price * elem.count}$</div>
+                </div>
+                <div className='deletebtn'>
+                  <MdDelete className='delete' />
+                  Delete
+                </div>
+
+              </div>
+
+            ))}
+          </div>
         </div>
       )}
     </>

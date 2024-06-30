@@ -18,7 +18,7 @@ const Favorite = () => {
     setDecoded(userDecoded)
   }, [])
 
-  console.log(Fav);
+
 
   useEffect(() => {
     if (Decoded) {
