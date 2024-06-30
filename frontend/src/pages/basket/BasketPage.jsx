@@ -17,8 +17,15 @@ const BasketPage = () => {
   useEffect(() => {
     setDecoded(userDecoded)
   }, [])
+  useEffect(() => {
+    showBasket()
+  }, [Basket])
+  
 
-  console.log(Basket);
+  
+  
+
+  
 
   useEffect(() => {
     if (Decoded) {
@@ -40,6 +47,52 @@ const BasketPage = () => {
     }).then(res => res.json()).then(data => setBasket(data))
 
   }
+  const deleteBasket = (x) => {
+
+    fetch("http://localhost:3100/deleteBasket", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json()).then(data => setBasket(data))
+
+  }
+  const incrementBasket = (x) => {
+
+    fetch("http://localhost:3100/incBasket", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json()).then(data => setBasket(data))
+
+  }
+  const decrementBasket = (x) => {
+
+    fetch("http://localhost:3100/decBasket", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json()).then(data => setBasket(data))
+
+  }
+
 
 
 
@@ -55,7 +108,7 @@ const BasketPage = () => {
         </Helmet>
       </HelmetProvider>
       {Basket.length == 0 ? (
-         <div className='emptyfav'><SlBasket className='emptybasket'/><h1>Your Basket is Empty</h1></div>
+        <div className='emptyfav'><SlBasket className='emptybasket' /><h1>Your Basket is Empty</h1></div>
       ) : (
         <div className='mainbasket'>
           <div className='container'>
@@ -76,14 +129,14 @@ const BasketPage = () => {
                   </p>
                 </div>
                 <div className='countdiv'>
-                  <button>-</button>
+                  <button onClick={() => decrementBasket(elem.productId._id)}>-</button>
                   {elem.count}
-                  <button>+</button>
+                  <button onClick={() => incrementBasket(elem.productId._id)}>+</button>
                 </div>
                 <div className='pricediv'>
                   <div>Price: {elem.productId.price * elem.count}$</div>
                 </div>
-                <div className='deletebtn'>
+                <div className='deletebtn' onClick={() => deleteBasket(elem.productId._id)} >
                   <MdDelete className='delete' />
                   Delete
                 </div>

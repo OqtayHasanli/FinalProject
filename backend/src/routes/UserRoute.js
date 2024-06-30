@@ -14,9 +14,12 @@ router.get("/users/:id",controller.getbyID)
 router.delete("/users/:id",controller.DeletebyID)
 router.patch("/users/:id",controller.PatchbyID)
 router.post("/login",controller.login)
+
 router.put('/addBasket',basketController.addBasket)
 router.put('/showBasket',basketController.showBasket) 
-
+router.put('/deleteBasket',basketController.deleteBasket) 
+router.put('/incBasket',basketController.incrementBasket) 
+router.put('/decBasket',basketController.decrementBasket) 
 
 router.put('/addFavorite',FavoriteController.addFavorite)
 router.put('/showFavorite',FavoriteController.showFavorite)

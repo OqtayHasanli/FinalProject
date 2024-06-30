@@ -5,6 +5,10 @@ import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import StartToastifyInstance from 'toastify-js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Shop = () => {
   const [data, setData] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
@@ -219,6 +223,7 @@ const Shop = () => {
               </div>
               <button className='addtocard' onClick={() => {
                 addBasket(elem._id)
+                toast("Added to Cart");
               }}>Add to Card</button>
               <FaHeart className={(Fav.find(item => item._id == elem._id)) ? "afterfav" : 'addfav'} onClick={() => {
                 addFavorite(elem._id)

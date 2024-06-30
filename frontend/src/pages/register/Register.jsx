@@ -8,6 +8,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -50,6 +52,7 @@ const Register = () => {
           }
           if (res.status==200) {
             Navigate("/")
+            toast("Successfully registered");
           }
         })
       }}
