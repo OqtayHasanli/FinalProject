@@ -6,6 +6,8 @@ import { FaHeart } from 'react-icons/fa';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import "./favorite.scss"
 import { FaHeartBroken } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Favorite = () => {
   const token = localStorage.getItem("token")
@@ -60,10 +62,25 @@ const Favorite = () => {
     }).then(res => res.json())
 
   }
+  const addBasket = (x) => {
+
+    fetch("http://localhost:3100/addBasket", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json())
+
+  }
 
   return (
     <>
-    <HelmetProvider>
+      <HelmetProvider>
         <Helmet>
           <title>Favorite</title>
         </Helmet>
@@ -86,6 +103,7 @@ const Favorite = () => {
                 </div>
                 <button className='addtocard' onClick={() => {
                   addBasket(elem._id)
+                  toast("Added to Cart");
                 }}>Add to Card</button>
                 <FaHeart className={(Fav.find(item => item._id == elem._id)) ? "afterfav" : 'addfav'} onClick={() => {
                   addFavorite(elem._id)

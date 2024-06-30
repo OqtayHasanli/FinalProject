@@ -5,6 +5,9 @@ import axios from 'axios';
 import { FaHeart } from "react-icons/fa";
 import { jwtDecode } from 'jwt-decode';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Detail = () => {
 
   const [detail, setdetail] = useState([]);
@@ -31,6 +34,21 @@ const Detail = () => {
   const addFavorite = (x) => {
 
     fetch("http://localhost:3100/addFavorite", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: Decoded.id,
+        productId: x
+      })
+    }).then(res => res.json())
+
+  }
+  const addBasket = (x) => {
+
+    fetch("http://localhost:3100/addBasket", {
       method: "PUT",
       headers: {
         "Authorization": "Bearer " + token,
@@ -73,32 +91,35 @@ const Detail = () => {
 
   return (
     <>
-    <HelmetProvider>
+      <HelmetProvider>
         <Helmet>
           <title>Detail</title>
         </Helmet>
       </HelmetProvider>
-    <div className='maindetail'>
-      <div className='container'>
-        <img src={detail.image} alt="image" />
-        <div className='description'>
-          <div className='texts'>
-            <h4>{detail.title}</h4>
-            <p className='desccard'>{detail.desc}</p>
-            <p className='pricecard'>{detail.price}$</p>
+      <div className='maindetail'>
+        <div className='container'>
+          <img src={detail.image} alt="image" />
+          <div className='description'>
+            <div className='texts'>
+              <h4>{detail.title}</h4>
+              <p className='desccard'>{detail.desc}</p>
+              <p className='pricecard'>{detail.price}$</p>
 
-          </div>
-          <div className='buttons'>
-            <button className='addtocard'>Add to Card</button>
-            <FaHeart className={(Fav.find(item => item._id == detail._id)) ? "afterfav" : 'addfav'} onClick={() => {
-              addFavorite(detail._id)
-            }} />
+            </div>
+            <div className='buttons'>
+              <button className='addtocard' onClick={() => {
+                addBasket(detail._id)
+                toast("Added to Cart");
+              }}>Add to Card</button>
+              <FaHeart className={(Fav.find(item => item._id == detail._id)) ? "afterfav" : 'addfav'} onClick={() => {
+                addFavorite(detail._id)
+              }} />
 
+            </div>
           </div>
+
         </div>
-
       </div>
-    </div>
     </>
 
   )
