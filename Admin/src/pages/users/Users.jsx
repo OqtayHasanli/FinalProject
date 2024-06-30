@@ -34,7 +34,6 @@ const Users = () => {
         <thead>
           <tr>
             <th>Email</th>
-            <th>Password</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -42,10 +41,9 @@ const Users = () => {
           {Data.map((elem) => (
             <tr key={elem._id}>
               <td>{elem.email}</td>
-              <td>{elem.password}</td>
               <td>
                 <button
-                  className="basketremove"
+                  className="deletebtn"
                   onClick={() => deleteUser(elem._id)}
                 >
                   Delete

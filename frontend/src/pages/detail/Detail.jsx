@@ -4,7 +4,7 @@ import "./detail.scss"
 import axios from 'axios';
 import { FaHeart } from "react-icons/fa";
 import { jwtDecode } from 'jwt-decode';
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const Detail = () => {
 
   const [detail, setdetail] = useState([]);
@@ -72,6 +72,12 @@ const Detail = () => {
   }, [Decoded]);
 
   return (
+    <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Detail</title>
+        </Helmet>
+      </HelmetProvider>
     <div className='maindetail'>
       <div className='container'>
         <img src={detail.image} alt="image" />
@@ -93,6 +99,7 @@ const Detail = () => {
 
       </div>
     </div>
+    </>
 
   )
 }

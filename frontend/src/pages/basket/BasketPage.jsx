@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { jwtDecode } from 'jwt-decode';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 const BasketPage = () => {
@@ -45,6 +46,11 @@ const BasketPage = () => {
 
   return (
     <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Basket</title>
+        </Helmet>
+      </HelmetProvider>
       {Basket == null ? (
         <div>Basket is Empty</div>
       ) : (

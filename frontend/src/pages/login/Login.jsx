@@ -6,6 +6,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import logo from "../../assets/images/logo.png"
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const schema = Yup.object().shape({
   email: Yup.string()
     .required("Email is a required field")
@@ -19,6 +20,11 @@ const Login = () => {
   const navigate=useNavigate()
   return (
     <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
+      </HelmetProvider>
       <div className='loginregisterNavbar'>
         <div className='mycontainernavbar'>
           <div><img className='logoimage' src={logo} alt="" /></div>
@@ -91,7 +97,7 @@ const Login = () => {
                   <button type="submit">Login</button>
                 </form>
               </div>
-              <Link to={"register"}><button className='createacount'>Create acount</button></Link>
+              {/* <Link to={"register"}><button className='createacount'>Create acount</button></Link> */}
             </div>
           )}
         </Formik>

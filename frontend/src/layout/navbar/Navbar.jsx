@@ -29,7 +29,6 @@ const Navbar = () => {
           <Link className='linknav' to={"home"}> <li className='navlist'>Home</li></Link>
           <Link className='linknav' to={"about"}> <li className='navlist'>About Us</li></Link>
           <Link className='linknav' to={"gallery"}> <li className='navlist'>Gallery</li></Link>
-          <li className='navlist'>Contacts</li>
           <Link className='linknav' to={"shop"}> <li className='navlist'>Shop</li></Link>
         </ul>
         <div className='socialnavbar' onClick={toggleProfileVisibility}>

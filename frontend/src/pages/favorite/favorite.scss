@@ -1,0 +1,16 @@
+.emptyfav{
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    gap: 30px;
+    h1{
+    font-size: 34px;
+    }
+    .brokenheart{
+        font-size: 40px;
+        color: red;
+    }
+}

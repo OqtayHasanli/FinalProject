@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -20,6 +21,11 @@ const Register = () => {
   const Navigate=useNavigate()
   return (
     <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Register</title>
+        </Helmet>
+      </HelmetProvider>
     <div className='loginregisterNavbar'>
         <div className='mycontainernavbar'>
           <div><img className='logoimage' src={logo} alt="" /></div>

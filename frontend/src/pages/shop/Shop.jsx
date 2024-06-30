@@ -4,7 +4,7 @@ import "./shop.scss";
 import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const Shop = () => {
   const [data, setData] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
@@ -163,6 +163,11 @@ const Shop = () => {
 
   return (
     <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Shop</title>
+        </Helmet>
+      </HelmetProvider>
       <div className='searchfilter'>
         <div className='searchfiltercontainer'>
           <div className='pricefilter'>

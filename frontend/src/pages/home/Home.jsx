@@ -7,10 +7,16 @@ import Underchoose from './components/UnderChoose/Underchoose'
 import PricingPlan from './components/pricingPlan/PricingPlan'
 import Whypeople from './components/Whypeople/Whypeople'
 import Getstarted from './components/getStarted/Getstarted'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Home = () => {
   return (
     <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
+      </HelmetProvider>
     <Hero/>
     <Classes/>
     <Crossfit/>

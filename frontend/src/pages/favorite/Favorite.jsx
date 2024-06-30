@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { jwtDecode } from 'jwt-decode';
 import { Link } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import "./favorite.scss"
+import { FaHeartBroken } from "react-icons/fa";
 
 const Favorite = () => {
   const token = localStorage.getItem("token")
@@ -61,8 +63,13 @@ const Favorite = () => {
 
   return (
     <>
-      {Fav == null ? (
-        <div>Fav is Empty</div>
+    <HelmetProvider>
+        <Helmet>
+          <title>Favorite</title>
+        </Helmet>
+      </HelmetProvider>
+      {Fav.length == 0 ? (
+        <div className='emptyfav'><FaHeartBroken className='brokenheart' /><h1>Your Favorites list is Empty</h1></div>
       ) : (
         <div className='mainshop'>
           <div className='containershop'>
